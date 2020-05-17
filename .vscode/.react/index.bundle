@@ -1334,12 +1334,14 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _App = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "./App"));
 
-  var _app = _$$_REQUIRE(_dependencyMap[3], "./app.json");
+  var _Headlines = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "./Headlines"));
+
+  var _app = _$$_REQUIRE(_dependencyMap[4], "./app.json");
 
   _reactNative.AppRegistry.registerComponent(_app.name, function () {
-    return _App.default;
+    return _Headlines.default;
   });
-},0,[1,2,476,485],"index.js");
+},0,[1,2,476,477,478],"index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -104367,12 +104369,230 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   $RefreshReg$(_c, "App");
 },476,[1,58,2],"App.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _regenerator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/regenerator"));
+
+  var _slicedToArray2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/slicedToArray"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[4], "react"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[5], "react-native");
+
+  var _TimerConverter = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "./TimerConverter"));
+
+  var _this = this,
+      _jsxFileName = "/Users/mehmetyilmaz/Projects/news/Headlines.js",
+      _s = $RefreshSig$();
+
+  var Headlines = function Headlines() {
+    _s();
+
+    var API_KEY = '4710f424e374445e8f96a956ffac5e94';
+    var country = 'tr';
+    var category = 'sports';
+    var apiUrl = "https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category + "&apiKey=" + API_KEY;
+
+    var _useState = (0, _react.useState)({}),
+        _useState2 = (0, _slicedToArray2.default)(_useState, 2),
+        headlines = _useState2[0],
+        setHeadlines = _useState2[1];
+
+    (0, _react.useEffect)(function () {
+      fetchData();
+    }, []);
+
+    function fetchData() {
+      return _regenerator.default.async(function fetchData$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _regenerator.default.awrap(fetch(apiUrl));
+
+            case 2:
+              _context.sent.json().then(function (res) {
+                return setHeadlines(res);
+              });
+
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, null, null, Promise);
+    }
+
+    renderItem = function renderItem(_ref) {
+      var item = _ref.item;
+      return _react.default.createElement(_reactNative.View, {
+        style: {
+          flex: 1,
+          flexDirection: 'row',
+          padding: 10,
+          borderBottom: 1,
+          borderBottomWidth: 1,
+          borderBottomColor: '#eee'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 13
+        }
+      }, _react.default.createElement(_reactNative.Image, {
+        style: {
+          width: 100,
+          height: 100
+        },
+        source: {
+          uri: item.urlToImage
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 17
+        }
+      }), _react.default.createElement(_reactNative.View, {
+        style: {
+          flex: 1,
+          paddingLeft: 10
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 17
+        }
+      }, _react.default.createElement(_reactNative.Text, {
+        style: {
+          flexWrap: 'wrap'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30,
+          columnNumber: 21
+        }
+      }, item.title), _react.default.createElement(_reactNative.View, {
+        style: {
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31,
+          columnNumber: 21
+        }
+      }, _react.default.createElement(_reactNative.Text, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32,
+          columnNumber: 21
+        }
+      }, item.source.name), _react.default.createElement(_reactNative.Text, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33,
+          columnNumber: 21
+        }
+      }, (0, _TimerConverter.default)(item.publishedAt)))));
+    };
+
+    return _react.default.createElement(_reactNative.SafeAreaView, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41,
+        columnNumber: 5
+      }
+    }, _react.default.createElement(_reactNative.FlatList, {
+      data: headlines.articles,
+      renderItem: _this.renderItem,
+      keyExtractor: function keyExtractor(item) {
+        return item.title;
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43,
+        columnNumber: 7
+      }
+    }));
+  };
+
+  _s(Headlines, "yhmDR3morK997beM7/XOj3xo59c=");
+
+  _c = Headlines;
+
+  var styles = _reactNative.StyleSheet.create({
+    bodyView: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
+  });
+
+  var _default = Headlines;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "Headlines");
+},477,[1,9,114,14,58,2,479],"Headlines.js");
 __d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
   module.exports = {
   "name": "news",
   "displayName": "news"
 };
-},485,[],"app.json");
+},478,[],"app.json");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var prettyTime = function prettyTime(time) {
+    if (!time) return;
+    var now = new Date();
+    var releasedDate = new Date(time);
+    var seconds = (now.getTime() - releasedDate) * 0.001 >> 0;
+    var minutes = seconds / 60;
+    var hours = minutes / 60;
+    var days = hours / 24;
+    var years = days / 365;
+    return templates.prefix + (seconds < 45 && template('seconds', seconds) || seconds < 90 && template('minute', 1) || minutes < 45 && template('minutes', minutes) || minutes < 90 && template('hour', 1) || hours < 24 && template('hours', hours) || hours < 42 && template('day', 1) || days < 30 && template('days', days) || days < 45 && template('month', 1) || days < 365 && template('months', days / 30) || years < 1.5 && template('year', 1) || template('years', years)) + templates.suffix;
+  };
+
+  var templates = {
+    prefix: "",
+    suffix: " once",
+    seconds: "saniyeler",
+    minute: "1 dakika",
+    minutes: "%d dakika",
+    hour: "1 saat",
+    hours: "%d saat",
+    day: "1 gun",
+    days: "%d gun",
+    month: "1 ay",
+    months: "%d ay",
+    year: "1 y�l",
+    years: "%d y�l"
+  };
+
+  var template = function template(t, n) {
+    return templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
+  };
+
+  var _default = prettyTime;
+  exports.default = _default;
+},479,[],"TimerConverter.js");
 __r(101);
 __r(0);
 //# sourceMappingURL=index.map
