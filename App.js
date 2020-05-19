@@ -9,7 +9,9 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, FlatList, Text, ImageBackground, TouchableHighlight, Alert} from 'react-native';
 
-const App: () => React$Node = () => {
+
+
+const App = ({ navigation }) => {
 
   const imageBaseUrl = 'https://images.unsplash.com/photo-';
   const imageId = '';
@@ -64,6 +66,10 @@ const App: () => React$Node = () => {
     </SafeAreaView>
   );
 };
+
+App.navigationOptions = ({navigation}) => ({
+  title : 'Haber Kategorileri'
+});
 
 const styles = StyleSheet.create({
   bodyView: {
