@@ -1341,7 +1341,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   _reactNative.AppRegistry.registerComponent(_app.name, function () {
     return _Headlines.default;
   });
-},0,[1,2,476,477,478],"index.js");
+},0,[1,2,476,477,479],"index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -104433,7 +104433,16 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
     renderItem = function renderItem(_ref) {
       var item = _ref.item;
-      return _react.default.createElement(_reactNative.View, {
+      return _react.default.createElement(_reactNative.TouchableHighlight, {
+        onPress: function onPress() {
+          _reactNative.Alert.alert(item.title);
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 11
+        }
+      }, _react.default.createElement(_reactNative.View, {
         style: {
           flex: 1,
           flexDirection: 'row',
@@ -104444,7 +104453,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27,
+          lineNumber: 28,
           columnNumber: 13
         }
       }, _react.default.createElement(_reactNative.Image, {
@@ -104457,7 +104466,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28,
+          lineNumber: 29,
           columnNumber: 17
         }
       }), _react.default.createElement(_reactNative.View, {
@@ -104467,7 +104476,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29,
+          lineNumber: 30,
           columnNumber: 17
         }
       }, _react.default.createElement(_reactNative.Text, {
@@ -104476,7 +104485,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30,
+          lineNumber: 31,
           columnNumber: 21
         }
       }, item.title), _react.default.createElement(_reactNative.View, {
@@ -104488,28 +104497,28 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31,
+          lineNumber: 32,
           columnNumber: 21
         }
       }, _react.default.createElement(_reactNative.Text, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32,
+          lineNumber: 33,
           columnNumber: 21
         }
       }, item.source.name), _react.default.createElement(_reactNative.Text, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33,
+          lineNumber: 34,
           columnNumber: 21
         }
-      }, (0, _TimerConverter.default)(item.publishedAt)))));
+      }, (0, _TimerConverter.default)(item.publishedAt))))));
     };
 
     return _react.default.createElement(_reactNative.SafeAreaView, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 43,
         columnNumber: 5
       }
     }, _react.default.createElement(_reactNative.FlatList, {
@@ -104520,7 +104529,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 45,
         columnNumber: 7
       }
     }));
@@ -104545,13 +104554,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var _c;
 
   $RefreshReg$(_c, "Headlines");
-},477,[1,9,114,14,58,2,479],"Headlines.js");
-__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
-  module.exports = {
-  "name": "news",
-  "displayName": "news"
-};
-},478,[],"app.json");
+},477,[1,9,114,14,58,2,478],"Headlines.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -104592,7 +104595,13 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _default = prettyTime;
   exports.default = _default;
-},479,[],"TimerConverter.js");
+},478,[],"TimerConverter.js");
+__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
+  module.exports = {
+  "name": "news",
+  "displayName": "news"
+};
+},479,[],"app.json");
 __r(101);
 __r(0);
 //# sourceMappingURL=index.map

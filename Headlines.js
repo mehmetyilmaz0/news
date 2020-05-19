@@ -1,6 +1,6 @@
 
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, Text, StyleSheet, FlatList, View, Image} from 'react-native';
+import { SafeAreaView, Text, StyleSheet, FlatList, View, Image, TouchableHighlight, Alert} from 'react-native';
 import timerConverter from './TimerConverter';
 
 const Headlines = () => {
@@ -24,6 +24,7 @@ const Headlines = () => {
 
     renderItem = ({ item }) => {
         return (
+          <TouchableHighlight onPress={() => {Alert.alert(item.title)}}>
             <View style={{ flex: 1, flexDirection: 'row', padding: 10, borderBottom: 1, borderBottomWidth: 1, borderBottomColor: '#eee' }}>
                 <Image style={{ width: 100, height: 100 }} source={{ uri: item.urlToImage }} />
                 <View style={{ flex: 1, paddingLeft: 10 }}>
@@ -34,6 +35,7 @@ const Headlines = () => {
                     </View>
                 </View>
             </View>
+            </TouchableHighlight>
         );
     };
 
